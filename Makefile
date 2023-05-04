@@ -8,6 +8,8 @@ URL_BASE=http://192.168.1.254
 -include COXPAL/Interior_Event/Makefile.targets
 -include COXPAL/Interior_Normal/Makefile.targets
 
+all: ${TARGETS}
+
 COXPAL/Front_Event:
 	mkdir -p $@
 
@@ -22,7 +24,6 @@ COXPAL/Interior_Normal:
 
 DIRS=COXPAL/Front_Event COXPAL/Front_Normal COXPAL/Interior_Event COXPAL/Interior_Normal
 
-
 WGET_BASE=wget ${URL_BASE}
 
 %.targets: ${DIRS}
@@ -32,8 +33,6 @@ WGET_BASE=wget ${URL_BASE}
 
 %.MP4:
 	${WGET_BASE}/$@ -O $@
-
-all: ${TARGETS}
 
 #  I SAID DO NOT ASK
 clean:
